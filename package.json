@@ -1,0 +1,22 @@
+{
+  "name": "WineSpectatorWrangler",
+  "version": "0.1.0",
+  "description": "A set of scripts which wrangle 27 years of Wine Spectator Top 100 Wines.",
+  "main": "main.js",
+  "scripts": {},
+  "author": "Paulo Jorge Reis <paulojreis@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulojreis/wine-spectator-wrangler.git"
+  },
+  "license": "ISC",
+  "keywords": [
+    "wine",
+    "ranking",
+    "wrangling",
+    "lodash"
+  ],
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
