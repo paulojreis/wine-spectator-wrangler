@@ -1,6 +1,7 @@
 var http        = require('http'),
     fs          = require('fs'),
     _           = require('lodash'),
+    wranglers   = require('./lib/wranglers.js'),
     BASE_URL    = 'http://assets.mshanken.com/wso/2015100t/json/',
     YEAR_START  = 1988,
     YEAR_END    = new Date().getFullYear(),
@@ -31,7 +32,16 @@ function getHTTPPromiseFromYear (year) {
 }
 
 function preProcessData (allYearsData) {
-    var rawData = _.sortBy(allYearsData, 'year');
+    var rawData             = _.sortBy(allYearsData, 'year'),
+        countryShareGlobal  = wranglers.getCountryShareGlobal(rawData),
+        countrySharePerYear = wranglers.getCountrySharePerYear(rawData),
+        medianPricePerYear  = wranglers.getMedianPricePerYear(rawData);
 
-    fs.writeFile('data.json', JSON.stringify(rawData));
+        console.log(medianPricePerYear);
+
+    fs.writeFile('data.json',                   JSON.stringify(rawData));
+
+    fs.writeFile('countryShareGlobal.json',     JSON.stringify(countryShareGlobal));
+    fs.writeFile('countrySharePerYear.json',    JSON.stringify(countrySharePerYear));
+    fs.writeFile('medianPricePerYear.json',     JSON.stringify(medianPricePerYear));
 }
