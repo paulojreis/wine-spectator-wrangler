@@ -36,12 +36,16 @@ function preProcessData (allYearsData) {
         countryShareGlobal  = wranglers.getCountryShareGlobal(rawData),
         countrySharePerYear = wranglers.getCountrySharePerYear(rawData),
         medianPricePerYear  = wranglers.getMedianPricePerYear(rawData);
-
-        console.log(medianPricePerYear);
+        wineryShareGlobal   = wranglers.getWineryShareGlobal(rawData);
+        topWineries         = wranglers.getTopWineries(rawData);
+        colorShareGlobal    = wranglers.getColorShareGlobal(rawData);
 
     fs.writeFile('data.json',                   JSON.stringify(rawData));
 
     fs.writeFile('countryShareGlobal.json',     JSON.stringify(countryShareGlobal));
     fs.writeFile('countrySharePerYear.json',    JSON.stringify(countrySharePerYear));
     fs.writeFile('medianPricePerYear.json',     JSON.stringify(medianPricePerYear));
+    fs.writeFile('wineryShareGlobal.json',      JSON.stringify(wineryShareGlobal));
+    fs.writeFile('topWineries.json',            JSON.stringify(topWineries));
+    fs.writeFile('colorShareGlobal.json',       JSON.stringify(colorShareGlobal));
 }
