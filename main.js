@@ -71,6 +71,8 @@ function preProcessData (allYearsData) {
         countrySharePerYear = wranglers.getCountrySharePerYear(rawData),
         medianPricePerYear  = wranglers.getMedianPricePerYear(rawData);
         wineryShareGlobal   = wranglers.getWineryShareGlobal(rawData);
+        cheapestWines       = wranglers.getCheapestWines(rawData, 20);
+        cheapestWinePerYear = wranglers.getCheapestWinePerYear(rawData);
         topWineries         = wranglers.getTopWineries(rawData);
         colorShareGlobal    = wranglers.getColorShareGlobal(rawData);
 
@@ -81,6 +83,8 @@ function preProcessData (allYearsData) {
             getFSWritePromise('./data/countrySharePerYear.json',    JSON.stringify(countrySharePerYear)),
             getFSWritePromise('./data/medianPricePerYear.json',     JSON.stringify(medianPricePerYear)),
             getFSWritePromise('./data/wineryShareGlobal.json',      JSON.stringify(wineryShareGlobal)),
+            getFSWritePromise('./data/cheapestWines.json',          JSON.stringify(cheapestWines)),
+            getFSWritePromise('./data/cheapestWinePerYear.json',    JSON.stringify(cheapestWinePerYear)),
             getFSWritePromise('./data/topWineries.json',            JSON.stringify(topWineries)),
             getFSWritePromise('./data/colorShareGlobal.json',       JSON.stringify(colorShareGlobal))
         ]))
@@ -91,6 +95,8 @@ function preProcessData (allYearsData) {
                 server.registerFile('countrySharePerYear',       './data/countrySharePerYear.json');
                 server.registerFile('medianPricePerYear',        './data/medianPricePerYear.json');
                 server.registerFile('wineryShareGlobal',         './data/wineryShareGlobal.json');
+                server.registerFile('cheapestWines',             './data/cheapestWines.json');
+                server.registerFile('cheapestWinePerYear',       './data/cheapestWinePerYear.json');
                 server.registerFile('topWineries',               './data/topWineries.json');
                 server.registerFile('colorShareGlobal',          './data/colorShareGlobal.json');
 
