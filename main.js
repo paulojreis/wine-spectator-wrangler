@@ -74,6 +74,7 @@ function preProcessData (allYearsData) {
         cheapestWines       = wranglers.getCheapestWines(rawData, 20);
         cheapestWinePerYear = wranglers.getCheapestWinePerYear(rawData);
         topWineries         = wranglers.getTopWineries(rawData);
+        wineriesPerCountry  = wranglers.getWineriesPerCountry(rawData);
         colorShareGlobal    = wranglers.getColorShareGlobal(rawData);
 
     getFSFolderExistsOrCreatePromise('data')
@@ -86,6 +87,7 @@ function preProcessData (allYearsData) {
             getFSWritePromise('./data/cheapestWines.json',          JSON.stringify(cheapestWines)),
             getFSWritePromise('./data/cheapestWinePerYear.json',    JSON.stringify(cheapestWinePerYear)),
             getFSWritePromise('./data/topWineries.json',            JSON.stringify(topWineries)),
+            getFSWritePromise('./data/wineriesPerCountry.json',     JSON.stringify(wineriesPerCountry)),
             getFSWritePromise('./data/colorShareGlobal.json',       JSON.stringify(colorShareGlobal))
         ]))
         .then(function () {
@@ -98,6 +100,7 @@ function preProcessData (allYearsData) {
                 server.registerFile('cheapestWines',             './data/cheapestWines.json');
                 server.registerFile('cheapestWinePerYear',       './data/cheapestWinePerYear.json');
                 server.registerFile('topWineries',               './data/topWineries.json');
+                server.registerFile('wineriesPerCountry',        './data/wineriesPerCountry.json');
                 server.registerFile('colorShareGlobal',          './data/colorShareGlobal.json');
 
                 server.startServer(serveAt);
